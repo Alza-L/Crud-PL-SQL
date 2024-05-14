@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="HintStyle">
+        <item name="android:textColor">@android:color/black</item> <!-- Warna teks hint -->
+        <item name="android:textSize">20dp</item> <!-- Ukuran teks hint -->
+        <item name="android:fontFamily">@font/pixelify_sans</item> <!-- Font family -->
+    </style>
+
+    <style name="ButtonTextStyle">
+        <item name="android:textColor">@android:color/white</item> <!-- Warna teks -->
+        <item name="android:textSize">24dp</item> <!-- Ukuran teks -->
+        <item name="android:fontFamily">@font/pixelify_sans</item> <!-- Font family -->
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MyApp.FloatingActionButton" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>
