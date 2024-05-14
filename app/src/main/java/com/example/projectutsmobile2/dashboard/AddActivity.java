@@ -95,7 +95,9 @@ public class AddActivity extends AppCompatActivity {
                 String nameItem = etName.getText().toString();
                 String priceItem = etPrice.getText().toString();
                 String stockItem = etStock.getText().toString();
-                
+                if (categoryId == 0) {
+                    Toast.makeText(AddActivity.this, "Please select category", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
