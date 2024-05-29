@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".dashboard.action.AddActivity"
+    tools:context=".dashboard.action.ItemEditActivity"
     android:background="@color/layout_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixelify_sans"
-                android:text="Add Item"
+                android:text="Edit Item"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -80,22 +80,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="none"
-                android:layout_marginBottom="32dp"
-                android:layout_marginTop="32dp">
-
                 <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/chip_group"
+                    android:id="@+id/chipCategory"
                     app:singleSelection="true"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:layout_marginTop="32dp">
 
                 </com.google.android.material.chip.ChipGroup>
-
-            </HorizontalScrollView>
 
             <EditText
                 android:id="@+id/editTextItemName"
@@ -140,12 +133,12 @@
                 android:textAppearance="@style/HintStyle" />
 
             <Button
-                android:id="@+id/buttonAddItem"
+                android:id="@+id/buttonSaveItem"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginBottom="32dp"
                 android:backgroundTint="@color/black"
-                android:text="Add Item"
+                android:text="Save"
                 android:textAppearance="@style/ButtonTextStyle"
                 app:cornerRadius="5dp" />
 

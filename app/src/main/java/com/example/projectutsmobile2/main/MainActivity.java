@@ -1,4 +1,4 @@
-package com.example.projectutsmobile2;
+package com.example.projectutsmobile2.main;
 
 import android.os.Bundle;
 
@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.example.projectutsmobile2.R;
 import com.example.projectutsmobile2.dashboard.DashboardFragment;
 import com.example.projectutsmobile2.profile.ProfileFragment;
 

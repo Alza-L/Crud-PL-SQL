@@ -1,8 +1,7 @@
-package com.example.projectutsmobile2.dashboard;
+package com.example.projectutsmobile2.dashboard.action;
 
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +14,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.projectutsmobile2.DatabaseHelper;
+import com.example.projectutsmobile2.main.DatabaseHelper;
 import com.example.projectutsmobile2.R;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;

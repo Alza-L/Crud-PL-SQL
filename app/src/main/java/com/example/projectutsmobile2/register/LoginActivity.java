@@ -1,4 +1,4 @@
-package com.example.projectutsmobile2;
+package com.example.projectutsmobile2.register;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -15,6 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.projectutsmobile2.main.DatabaseHelper;
+import com.example.projectutsmobile2.main.MainActivity;
+import com.example.projectutsmobile2.R;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -116,6 +120,34 @@ public class LoginActivity extends AppCompatActivity {
         dbHelper.insertTableCategory(R.drawable.img_potion, "Potion");
         dbHelper.insertTableCategory(R.drawable.img_knife, "Knife");
         dbHelper.insertTableCategory(R.drawable.img_helmet, "Helmet");
-        dbHelper.insertTableItem("Basic Sword", "7.2", "5", 1);
+
+        dbHelper.insertTableItem("Throwing Knife", "5.00", "40", 8); // Knife
+        dbHelper.insertTableItem("Basic Katana", "25.00", "8", 3); // Katana
+        dbHelper.insertTableItem("Mystic Magic Staff", "55.00", "3", 2); // Magic Staff
+        dbHelper.insertTableItem("Iron Sword", "10.50", "15", 1); // Sword
+        dbHelper.insertTableItem("Health Potion", "5.00", "30", 7); // Potion
+        dbHelper.insertTableItem("Dragon Katana", "75.00", "2", 3); // Katana
+        dbHelper.insertTableItem("Iron Mace", "15.00", "15", 5); // Mace
+        dbHelper.insertTableItem("Golden Helmet", "35.00", "7", 9); // Helmet
+        dbHelper.insertTableItem("Leather Helmet", "10.00", "15", 9); // Helmet
+        dbHelper.insertTableItem("Flanged Mace", "30.00", "8", 5); // Mace
+        dbHelper.insertTableItem("Iron Axe", "12.00", "20", 4); // Axe
+        dbHelper.insertTableItem("Enchanted Magic Staff", "30.00", "7", 2); // Magic Staff
+        dbHelper.insertTableItem("Mana Potion", "7.00", "25", 7); // Potion
+        dbHelper.insertTableItem("Steel Sword", "20.75", "10", 1); // Sword
+        dbHelper.insertTableItem("Basic Knife", "3.00", "50", 8); // Knife
+        dbHelper.insertTableItem("War Axe", "40.00", "6", 4); // Axe
+        dbHelper.insertTableItem("Stamina Potion", "6.00", "28", 7); // Potion
+        dbHelper.insertTableItem("Iron Shield", "20.00", "10", 6); // Shield
+        dbHelper.insertTableItem("Samurai Katana", "40.00", "5", 3); // Katana
+        dbHelper.insertTableItem("Dragon Shield", "50.00", "4", 6); // Shield
+        dbHelper.insertTableItem("Iron Helmet", "20.00", "12", 9); // Helmet
+        dbHelper.insertTableItem("Wooden Shield", "10.00", "18", 6); // Shield
+        dbHelper.insertTableItem("Battle Axe", "25.00", "10", 4); // Axe
+        dbHelper.insertTableItem("Diamond Sword", "50.00", "5", 1); // Sword
+        dbHelper.insertTableItem("Wooden Mace", "8.00", "25", 5); // Mace
+        dbHelper.insertTableItem("Basic Magic Staff", "15.00", "12", 2); // Magic Staff
+        dbHelper.insertTableItem("Dagger", "12.00", "20", 8); // Knife
+
     } // Method Insert Data
 }

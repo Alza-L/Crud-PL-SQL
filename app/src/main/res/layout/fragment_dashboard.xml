@@ -12,70 +12,67 @@
         android:layout_height="match_parent"
         android:paddingTop="20dp"
         android:paddingHorizontal="20dp">
-<!--  Header  -->
+
+        <!-- Header -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingVertical="3dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <!--  Icon Menu  -->
+            <!-- Icon Search -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="3dp"
                 app:cardCornerRadius="60dp"
                 app:cardElevation="3dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/baseline_menu_24" />
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:queryHint="Search" />
             </androidx.cardview.widget.CardView>
 
+
+            <!-- Dashboard TextView -->
             <TextView
+                android:id="@+id/titleDashboard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixelify_sans"
                 android:text="Dashboard"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/cardView2"
                 app:layout_constraintStart_toEndOf="@+id/cardView"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <!--  Icon Notification  -->
+            <!-- Icon Notification -->
             <androidx.cardview.widget.CardView
+                android:visibility="invisible"
                 android:id="@+id/cardView2"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="49dp"
+                android:layout_height="49dp"
                 android:layout_gravity="center"
-                android:layout_margin="3dp"
                 app:cardCornerRadius="60dp"
                 app:cardElevation="3dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/baseline_notification_bell_24" />
             </androidx.cardview.widget.CardView>
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--  Floating Button  -->
+
+        <!-- Floating Button -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add_button"
             android:layout_width="wrap_content"
@@ -90,11 +87,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.FloatingActionButton" />
 
-<!--  RecyclerView  -->
+        <!-- RecyclerView -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

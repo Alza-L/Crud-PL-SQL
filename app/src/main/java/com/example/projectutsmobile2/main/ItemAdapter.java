@@ -1,17 +1,17 @@
-package com.example.projectutsmobile2;
+package com.example.projectutsmobile2.main;
 
-import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.projectutsmobile2.R;
+import com.example.projectutsmobile2.dashboard.action.ItemDetailActivity;
 
 import java.util.List;
 
@@ -35,7 +35,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         String checkLongString = item.getItem_name();
         String shortenedString = "";
         if (checkLongString.length() > 13) {
-            shortenedString = checkLongString.substring(0, checkLongString.length() - 3) + "...";
+            shortenedString = checkLongString.substring(0, 10) + "...";
             holder.item_name.setText(shortenedString);
         } else {
             holder.item_name.setText(item.getItem_name());

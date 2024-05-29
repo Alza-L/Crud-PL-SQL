@@ -1,4 +1,4 @@
-package com.example.projectutsmobile2;
+package com.example.projectutsmobile2.main;
 
 import android.util.Log;
 

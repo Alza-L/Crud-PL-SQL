@@ -1,4 +1,4 @@
-package com.example.projectutsmobile2;
+package com.example.projectutsmobile2.main;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -78,7 +78,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void insertTableUser(String email, String username, String password) {
+    public void insertTableUser(String email, String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -93,7 +93,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     } // Insert Table User
 
-    void insertTableCategory(int image_id, String category_name) {
+    public void insertTableCategory(int image_id, String category_name) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -129,7 +129,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     } // Take User Account
 
-    int checkItemRow() {
+    public int checkItemRow() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM " + TABLE_ITEM, null);
         int count = 0;

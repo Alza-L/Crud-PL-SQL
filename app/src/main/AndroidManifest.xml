@@ -2,27 +2,44 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_dimension_trade"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_dimension_trade"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectUtsMobile2"
         tools:targetApi="31">
         <activity
-            android:name=".dashboard.AddActivity"
+            android:name=".profile.ImageViewActivity"
             android:exported="false" />
         <activity
-            android:name=".SignupActivity"
+            android:name=".profile.AboutMeActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".profile.ManageProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".dashboard.action.ItemEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".dashboard.action.ItemDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".dashboard.action.AddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".register.SignupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".register.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

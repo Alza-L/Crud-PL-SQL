@@ -42,4 +42,5 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
 
     implementation("com.etebarian:meow-bottom-navigation:1.2.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }
