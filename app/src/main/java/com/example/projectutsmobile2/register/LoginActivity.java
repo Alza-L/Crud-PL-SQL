@@ -100,20 +100,22 @@ public class LoginActivity extends AppCompatActivity {
         if (cursor != null) {
             while (cursor.moveToNext()) {
                 this.usernameDb = cursor.getString(0);
-                this.passwordDb = cursor.getString(1);
+                this.passwordDb = cursor.getString(2);
             }
         }
         return cursor.getCount();
     } // Method Select User Account
 
     private void insertData() {
-        dbHelper.insertTableCategory(R.drawable.sword,"Sword");
-        dbHelper.insertTableCategory(1,"Arrow");
-        dbHelper.insertTableCategory(1,"Axe");
-        dbHelper.insertTableCategory(1,"Katana");
-        dbHelper.insertTableCategory(1,"Shield");
-        dbHelper.insertTableCategory(1,"Mask");
-        dbHelper.insertTableCategory(1,"Potion");
-        dbHelper.insertTableItem("Basic Sword", "34,276.02", "5", 1);
+        dbHelper.insertTableCategory(R.drawable.img_sword,"Sword");
+        dbHelper.insertTableCategory(R.drawable.img_magic_staff,"Magic Staff");
+        dbHelper.insertTableCategory(R.drawable.img_katana, "Katana");
+        dbHelper.insertTableCategory(R.drawable.img_axe, "Axe");
+        dbHelper.insertTableCategory(R.drawable.img_mace, "Mace");
+        dbHelper.insertTableCategory(R.drawable.img_shield, "Shied");
+        dbHelper.insertTableCategory(R.drawable.img_potion, "Potion");
+        dbHelper.insertTableCategory(R.drawable.img_knife, "Knife");
+        dbHelper.insertTableCategory(R.drawable.img_helmet, "Helmet");
+        dbHelper.insertTableItem("Basic Sword", "7.2", "5", 1);
     } // Method Insert Data
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -99,14 +100,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put("category_imageid", image_id);
         cv.put("category_name", category_name);
         long result = db.insert(TABLE_CATEGORY, null, cv);
-        if (result == -1) {
-            Toast.makeText(context, "Insert Category Failed", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(context, "Insert Category Success", Toast.LENGTH_SHORT).show();
-        }
     } // Insert Table Category
 
-    void insertTableItem(String item_name, String item_price, String item_stock, int category_id) {
+    public void insertTableItem(String item_name, String item_price, String item_stock, int category_id) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -122,8 +118,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     } // Insert Table Item
 
-    Cursor takeUserAccount() {
-        String query = "SELECT username, password FROM "+TABLE_USER;
+    public Cursor takeUserAccount() {
+        String query = "SELECT "+USER_COLUMN_USERNAME+","+USER_COLUMN_EMAIL+","+USER_COLUMN_PASSWORD+" FROM "+TABLE_USER;
         SQLiteDatabase db = this.getWritableDatabase();
 
         Cursor cursor = null;
@@ -148,9 +144,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getAllItems() {
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT " + TABLE_ITEM + "." + ITEM_COLUMN_NAME + ", "
+        String query = "SELECT " + TABLE_ITEM + "." + ITEM_COLUMN_ID + ", "
+                + TABLE_ITEM + "." + ITEM_COLUMN_NAME + ", "
                 + TABLE_ITEM + "." + ITEM_COLUMN_PRICE + ", "
                 + TABLE_ITEM + "." + ITEM_COLUMN_STOCK + ", "
+                + TABLE_ITEM + "." + ITEM_COLUMN_CATEGORY_ID + ", "
                 + TABLE_CATEGORY + "." + CATEGORY_COLUMN_IMAGEID + " AS ITEM_COLUMN_CATEGORY_IMAGEID, "
                 + TABLE_CATEGORY + "." + CATEGORY_COLUMN_NAME + " AS ITEM_COLUMN_CATEGORY_NAME "
                 + "FROM " + TABLE_ITEM
@@ -168,5 +166,58 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query, null);
         return cursor;
     }// Get Category
+
+    public boolean deleteItem(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int rowsDeleted = db.delete(TABLE_ITEM, ITEM_COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+        db.close();
+        return rowsDeleted > 0;
+    }
+
+    public boolean updateItem(int id, String name, String price, String stock, int category_id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(ITEM_COLUMN_NAME, name);
+        values.put(ITEM_COLUMN_PRICE, price);
+        values.put(ITEM_COLUMN_STOCK, stock);
+        values.put(ITEM_COLUMN_CATEGORY_ID, category_id);
+        int rowsUpdated = db.update(TABLE_ITEM, values, ITEM_COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+        db.close();
+        return rowsUpdated > 0;
+    }
+
+    public Cursor searchItem(String search) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = "SELECT " + TABLE_ITEM + "." + ITEM_COLUMN_ID + ", "
+                + TABLE_ITEM + "." + ITEM_COLUMN_NAME + ", "
+                + TABLE_ITEM + "." + ITEM_COLUMN_PRICE + ", "
+                + TABLE_ITEM + "." + ITEM_COLUMN_STOCK + ", "
+                + TABLE_ITEM + "." + ITEM_COLUMN_CATEGORY_ID + ", "
+                + TABLE_CATEGORY + "." + CATEGORY_COLUMN_IMAGEID + " AS ITEM_COLUMN_CATEGORY_IMAGEID, "
+                + TABLE_CATEGORY + "." + CATEGORY_COLUMN_NAME + " AS ITEM_COLUMN_CATEGORY_NAME "
+                + "FROM " + TABLE_ITEM
+                + " INNER JOIN " + TABLE_CATEGORY
+                + " ON " + TABLE_ITEM + "." + ITEM_COLUMN_CATEGORY_ID
+                + " = " + TABLE_CATEGORY + "." + CATEGORY_COLUMN_ID +
+                " WHERE " + TABLE_ITEM + "." + ITEM_COLUMN_NAME + " LIKE '%" + search + "%' OR " +
+                TABLE_CATEGORY + "." + CATEGORY_COLUMN_NAME + " LIKE '%" + search + "%'";
+
+        Cursor cursor = db.rawQuery(query, null);
+        return cursor;
+    }
+
+    public boolean updateProfile(String query) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        try {
+            db.execSQL(query);
+            db.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            db.close();
+            return false;
+        }
+    }
 
 }

@@ -96,7 +96,12 @@ public class AddActivity extends AppCompatActivity {
                 String priceItem = etPrice.getText().toString();
                 String stockItem = etStock.getText().toString();
                 if (categoryId == 0) {
-                    Toast.makeText(AddActivity.this, "Please select category", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddActivity.this, "Pilih kategori!", Toast.LENGTH_SHORT).show();
+                } else if (nameItem.isEmpty() || priceItem.isEmpty() || stockItem.isEmpty()) {
+                    Toast.makeText(AddActivity.this, "Lengkapi input!", Toast.LENGTH_SHORT).show();
+                } else {
+                    dbHelper.insertTableItem(nameItem, priceItem, stockItem, categoryId);
+                    finish();
                 }
             }
         });
