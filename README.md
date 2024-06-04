@@ -1,6 +1,6 @@
 # Dimension Trade
 
-This application project implements [SQLite](https://www.sqlite.org/index.html), using the CRUD (Creat Read Update Delete) process in it.
+This application project implements [SQLite](https://www.sqlite.org/index.html), using the [CRUD](https://www.codecademy.com/article/what-is-crud) process in it.
 
 ## Application Review
 
