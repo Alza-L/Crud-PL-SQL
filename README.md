@@ -1,6 +1,6 @@
 # Dimension Trade
 
-I created this SQLite CRUD project based on the mid-semester exam for the Mobile Programming course
+This application project implements [SQLite](https://www.sqlite.org/index.html), using the CRUD (Creat Read Update Delete) process in it.
 
 ## Application Review
 
