@@ -1,4 +1,4 @@
-## Dimension Trade
+# Dimension Trade
 
 I created this SQLite CRUD project based on the mid-semester exam for the Mobile Programming course
 
